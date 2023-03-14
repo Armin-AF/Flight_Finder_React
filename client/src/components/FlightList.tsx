@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flight } from './types';
+import { Flight } from '../types';
 
 interface FlightListProps {
     flights: Flight[];

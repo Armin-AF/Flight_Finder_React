@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flight } from './types';
+import { Flight } from '../types';
 
 interface FlightDetailsProps {
     flight: Flight;

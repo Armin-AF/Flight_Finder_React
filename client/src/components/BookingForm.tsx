@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Passenger } from './types';
+import { Passenger } from '../types';
 
 interface BookingFormProps {
   onSubmit: (passengers: Passenger[]) => void;
