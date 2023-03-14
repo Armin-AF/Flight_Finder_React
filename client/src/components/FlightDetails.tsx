@@ -3,13 +3,14 @@ import { Flight } from '../types';
 
 interface FlightDetailsProps {
     flight: Flight;
-    onBookFlight: () => void;
+    onBookFlight: (flight: Flight) => void;
 }
 
 const FlightDetails: React.FC<FlightDetailsProps> = ({ flight, onBookFlight }) => {
     const handleBookFlight = () => {
-        onBookFlight();
+        onBookFlight(flight);
     };
+
 
     return (
         <div className="bg-white rounded-lg shadow-md px-6 py-4 mb-4">

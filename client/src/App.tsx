@@ -8,7 +8,7 @@ import { Flight } from './types';
 const App: React.FC = () => {
   const [flights, setFlights] = useState<Flight[]>([]);
   const [selectedFlight, setSelectedFlight] = useState<Flight | null>(null);
-  const [passengers, setPassengers] = useState([{ firstName: '', lastName: '', age: 0, nationality: '', dateOfBirth: '' }]);
+  const [passengers, setPassengers] = useState([{ firstName: '', lastName: '', age: 0, nationality: ''}]);
 
   const searchFlights = (searchParams: any) => {
     // Call backend API to search for flights with the given searchParams
@@ -71,7 +71,7 @@ const App: React.FC = () => {
               {selectedFlight && (
                   <>
                     <FlightDetails flight={selectedFlight}   onBookFlight={handleFlightSelect} />
-                    <BookingForm passengers={passengers} onSubmit={handleBookingSubmit} onPassengerChange={handlePassengerChange} />
+                      <BookingForm passengers={passengers} onSubmit={handleBookingSubmit}  onPassengersChange={setPassengers} />
                   </>
               )}
             </>
