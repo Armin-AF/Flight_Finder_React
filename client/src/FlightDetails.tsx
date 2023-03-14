@@ -14,7 +14,7 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({ flight, onBookFlight }) =
     return (
         <div className="bg-white rounded-lg shadow-md px-6 py-4 mb-4">
             <h2 className="text-2xl font-bold mb-2">
-                {flight.departure} - {flight.arrival}
+                {flight.departureDate} - {flight.arrivalDate}
             </h2>
             <p className="text-gray-700 mb-2">
                 {flight.departureDate} - {flight.arrivalDate}

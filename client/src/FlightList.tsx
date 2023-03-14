@@ -17,7 +17,7 @@ const FlightList: React.FC<FlightListProps> = ({ flights, onFlightSelect }) => {
             {flights.map((flight) => (
                 <div key={flight.id} className="bg-white rounded-lg shadow-md px-6 py-4 cursor-pointer mb-4" onClick={() => handleFlightSelect(flight)}>
                     <h3 className="font-bold text-lg mb-2">
-                        {flight.departure} - {flight.arrival}
+                        {flight.departureDate} - {flight.arrivalDate}
                     </h3>
                     <p className="text-gray-700 mb-2">
                         {flight.departureDate} - {flight.arrivalDate}

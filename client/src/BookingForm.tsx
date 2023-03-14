@@ -40,13 +40,14 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmit }) => {
     });
   };
 
-  const handlePassengerChange = (index: number, field: string, value: string) => {
+  const handlePassengerChange = (index: number, field: keyof Passenger, value: string) => {
     setPassengers((prevState) => {
       const newState = [...prevState];
       newState[index][field] = value;
       return newState;
     });
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md px-6 py-4 mb-4">
@@ -95,7 +96,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmit }) => {
                 Nationality
             </label>
               <input
-                  id={nationality${index}}
+                  id={`nationality${index}`}
                   type="text"
                   value={passenger.nationality}
                   onChange={(e) => handlePassengerChange(index, 'nationality', e.target.value)}

@@ -1,4 +1,5 @@
 export interface Flight {
+    arrivalDate: string;
     id: string;
     origin: string;
     destination: string;
@@ -19,6 +20,8 @@ export interface Layover {
 export interface Passenger {
     firstName: string;
     lastName: string;
-    dateOfBirth: string;
+    age: number;
     nationality: string;
+    dateOfBirth?: string;
+    [key: string]: any;
 }
