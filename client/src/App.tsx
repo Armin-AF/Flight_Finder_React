@@ -49,7 +49,17 @@ const App: React.FC = () => {
 ],
 },
     ];
-    setFlights(dummyFlights);
+      // Filter dummy flights based on the searchParams
+      const filteredFlights = dummyFlights.filter((flight) => {
+          return (
+              flight.origin === searchParams.origin &&
+              flight.destination === searchParams.destination &&
+              flight.departureDate === searchParams.departureDate &&
+              flight.availableSeats >= searchParams.passengers
+          );
+      });
+
+      setFlights(filteredFlights);
     };
 
   const handleFlightSelect = (flight: Flight) => {
