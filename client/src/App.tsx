@@ -74,7 +74,7 @@ const App: React.FC = () => {
               flight.origin === searchParams.departure &&
               flight.destination === searchParams.arrival &&
               flight.departureDate === searchParams.departureDate &&
-              flight.availableSeats >= searchParams.passengers
+              flight.availableSeats >= searchParams.passengers.adults + searchParams.passengers.children
           );
       });
       console.log("Input Departure Date: ", searchParams.departureDate);
