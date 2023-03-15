@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { SearchParams} from "../types";
+import { SearchParams } from '../types';
 
 interface SearchBarProps {
     onSearch: (searchParams: SearchParams) => void;
 }
-
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [departure, setDeparture] = useState('');
@@ -39,6 +38,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     return (
         <form onSubmit={handleSearch} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            {errorMessage && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+                    {errorMessage}
+                </div>
+            )}
             <div className="grid grid-cols-2 gap-4">
                 <div>
                     <label htmlFor="departure" className="block text-gray-700 font-bold mb-2">
@@ -122,6 +126,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                     />
                 </div>
             </div>
+
+            {errorMessage && (
+                <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-4" role="alert">
+                    <p>{errorMessage}</p>
+                </div>
+            )}
 
             <button
                 type="submit"
