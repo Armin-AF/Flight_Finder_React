@@ -25,3 +25,14 @@ export interface Passenger {
     dateOfBirth?: string;
     [key: string]: any;
 }
+
+export interface SearchParams {
+    departure: string;
+    arrival: string;
+    departureDate: string;
+    returnDate?: string;
+    passengers: {
+        adults: number;
+        children: number;
+    };
+}

@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
+import { SearchParams} from "../types";
 
 interface SearchBarProps {
     onSearch: (searchParams: SearchParams) => void;
 }
 
-interface SearchParams {
-    departure: string;
-    arrival: string;
-    departureDate: string;
-    returnDate?: string;
-    passengers: {
-        adults: number;
-        children: number;
-    };
-}
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [departure, setDeparture] = useState('');
