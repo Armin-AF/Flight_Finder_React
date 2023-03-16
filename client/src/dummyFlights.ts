@@ -52,5 +52,39 @@ export const dummyFlights: Flight[] = [
             },
         ],
     },
+    {
+        arrivalDate: '2023-08-01',
+        id: '4',
+        origin: 'Stockholm',
+        destination: 'Amsterdam',
+        departureDate: '2023-09-01',
+        duration: '5h',
+        price: 400,
+        currency: 'EUR',
+        availableSeats: 20,
+        layovers: [
+            {
+                airport: 'Paris',
+                duration: '2h',
+            },
+        ],
+    },
+    {
+        arrivalDate: '2023-08-10',
+        id: '5',
+        origin: 'Stockholm',
+        destination: 'Amsterdam',
+        departureDate: '2023-08-10',
+        duration: '5h',
+        price: 400,
+        currency: 'EUR',
+        availableSeats: 20,
+        layovers: [
+            {
+                airport: 'Paris',
+                duration: '2h',
+            },
+        ],
+    },
 ];
 
