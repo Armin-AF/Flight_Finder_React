@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import FlightList from './components/FlightList';
 import FlightDetails from './components/FlightDetails';
 import BookingForm from './components/BookingForm';
+import AnimatedTitle from './components/AnimatedTitle';
 import { Flight } from './types';
 
 
@@ -115,9 +116,10 @@ const App: React.FC = () => {
   };
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <div className="bg-white py-6 px-4 border-b border-gray-200">
-                <h1 className="text-4xl font-bold text-center">Flight Booker</h1>
+        <div className="min-h-screen bg-gray-100 content-center">
+            <h1 className="text-5xl font-semi-bold text-gray-800 text-center py-4">Flight Booking ✈️</h1>
+            <div className="container mx-auto py-24 px-8">
+                <AnimatedTitle />
             </div>
             <div className="container mx-auto py-8 px-4">
                 <div className="grid grid-cols-12 gap-8">
@@ -133,7 +135,7 @@ const App: React.FC = () => {
                     <div className="col-span-12 sm:col-span-4 lg:col-span-3">
                         {selectedFlight && (
                             <div className="bg-white p-4 border border-gray-200 rounded">
-                                <h2 className="text-2xl font-semibold mb-4">Booking Details</h2>
+                                <h2 className="text-2xl font-semi-bold mb-4">Booking Details</h2>
                                 <BookingForm
                                     passengers={passengers}
                                     onSubmit={handleBookingSubmit}
