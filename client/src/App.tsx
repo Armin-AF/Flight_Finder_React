@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import SearchBar from './components/SearchBar';
 import FlightList from './components/FlightList';
 import FlightDetails from './components/FlightDetails';
@@ -10,6 +10,16 @@ const App: React.FC = () => {
   const [flights, setFlights] = useState<Flight[]>([]);
   const [selectedFlight, setSelectedFlight] = useState<Flight | null>(null);
   const [passengers, setPassengers] = useState([{ firstName: '', lastName: '', age: 0, nationality: ''}]);
+  const [message, setMessage] = useState('fill in the form to search for flights');
+
+    useEffect(() => {
+        if (flights.length > 0) {
+            setMessage('Select a flight to book');
+        } else {
+            setMessage('No flights found');
+        }
+    }, [flights]);
+
 
   const searchFlights = (searchParams: any) => {
       console.log('searchParams:', searchParams);
@@ -106,6 +116,8 @@ const App: React.FC = () => {
 
   return (
       <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold text-center my-8">Flight Booker</h1>
+        <p className="text-center">{message}</p>
         <SearchBar onSearch={searchFlights} />
         {flights.length > 0 && (
             <>
