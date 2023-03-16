@@ -114,24 +114,38 @@ const App: React.FC = () => {
     console.log('Booking submitted!');
   };
 
-  return (
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center my-8">Flight Booker</h1>
-        <p className="text-center">{message}</p>
-        <SearchBar onSearch={searchFlights} />
-        {flights.length > 0 && (
-            <>
-              <FlightList flights={flights} onFlightSelect={handleFlightSelect} />
-              {selectedFlight && (
-                  <>
-                    <FlightDetails flight={selectedFlight}   onBookFlight={handleFlightSelect} />
-                      <BookingForm passengers={passengers} onSubmit={handleBookingSubmit}  onPassengersChange={setPassengers} />
-                  </>
-              )}
-            </>
-        )}
-      </div>
-  );
+    return (
+        <div className="min-h-screen bg-gray-100">
+            <div className="bg-white py-6 px-4 border-b border-gray-200">
+                <h1 className="text-4xl font-bold text-center">Flight Booker</h1>
+            </div>
+            <div className="container mx-auto py-8 px-4">
+                <div className="grid grid-cols-12 gap-8">
+                    <div className="col-span-12 sm:col-span-8 lg:col-span-9">
+                        <SearchBar onSearch={searchFlights} />
+                        {flights.length > 0 && (
+                            <>
+                                <FlightList flights={flights} onFlightSelect={handleFlightSelect} />
+                                {selectedFlight && <FlightDetails flight={selectedFlight} onBookFlight={handleFlightSelect} />}
+                            </>
+                        )}
+                    </div>
+                    <div className="col-span-12 sm:col-span-4 lg:col-span-3">
+                        {selectedFlight && (
+                            <div className="bg-white p-4 border border-gray-200 rounded">
+                                <h2 className="text-2xl font-semibold mb-4">Booking Details</h2>
+                                <BookingForm
+                                    passengers={passengers}
+                                    onSubmit={handleBookingSubmit}
+                                    onPassengersChange={setPassengers}
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default App;
