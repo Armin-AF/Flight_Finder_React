@@ -5,6 +5,7 @@ import FlightDetails from './components/FlightDetails';
 import BookingForm from './components/BookingForm';
 import AnimatedTitle from './components/AnimatedTitle';
 import { Flight } from './types';
+import { dummyFlights } from './dummyFlights';
 
 
 const App: React.FC = () => {
@@ -12,6 +13,7 @@ const App: React.FC = () => {
   const [selectedFlight, setSelectedFlight] = useState<Flight | null>(null);
   const [passengers, setPassengers] = useState([{ firstName: '', lastName: '', age: 0, nationality: ''}]);
   const [message, setMessage] = useState('fill in the form to search for flights');
+
 
     useEffect(() => {
         if (flights.length > 0) {
@@ -25,60 +27,7 @@ const App: React.FC = () => {
   const searchFlights = (searchParams: any) => {
       console.log('searchParams:', searchParams);
       // Call backend API to search for flights with the given searchParams
-    // Set the returned flights to the flights state
-    const dummyFlights: Flight[] = [
-      {
-        arrivalDate: '2023-05-01',
-        id: '1',
-        origin: 'Amsterdam',
-        destination: 'Stockholm',
-        departureDate: '2023-06-01',
-        duration: '5h',
-        price: 100,
-        currency: 'EUR',
-        availableSeats: 10,
-        layovers: [
-            {
-                airport: 'Paris',
-                duration: '2h',
-            },
-        ],
-        },
-        {
-            arrivalDate: '2023-06-01',
-            id: '2',
-            origin: 'Stockholm',
-            destination: 'Oslo',
-            departureDate: '2023-07-01',
-            duration: '10h',
-            price: 200,
-            currency: 'EUR',
-            availableSeats: 40,
-            layovers: [
-                {
-                    airport: 'Paris',
-                    duration: '2h',
-                },
-            ],
-        },
-        {
-            arrivalDate: '2023-07-01',
-            id: '3',
-            origin: 'Oslo',
-            destination: 'Stockholm',
-            departureDate: '2020-08-01',
-            duration: '10h',
-            price: 300,
-            currency: 'EUR',
-            availableSeats: 30,
-            layovers: [
-                {
-                    airport: 'Paris',
-                    duration: '4h',
-                },
-            ],
-                },
-    ];
+
       // Filter dummy flights based on the searchParams
       const filteredFlights = dummyFlights.filter((flight) => {
           return (
